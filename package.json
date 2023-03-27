@@ -4,6 +4,7 @@
   "description": "A service that hosts files without storing them.",
   "main": "index.js",
   "scripts": {
+    "rel": "node .",
     "dev": "nodemon ."
   },
   "keywords": [
