@@ -4,8 +4,13 @@ jobs:
     runs-on: ubuntu-latest
     container: node:18
     steps:
-      - run: node --version
-      - run: npm --version
-      - uses: actions/checkout@v3
+      - name: ✅ Check Versions
+        run: node --version
+        run: npm --version
+      - name: 🛒 Checkout
+        uses: actions/checkout@v3
       - run: npm install
-      - run: node .
+      - name: 🔎 Check IP
+        run: curl https://api.ipify.org
+      - name: 🚀 Deploy
+        run: node .
