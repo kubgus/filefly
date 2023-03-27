@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head") %>
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="js/index.js" defer></script>
+
+    <title>Host a file</title>
+</head>
+
+<body>
+    <div id="drop-area">
+        <form class="drop-form">
+            <input type="file" id="fileElem" multiple onchange="handleFiles(this.files)">
+            <label class="button" for="fileElem">Select files</label>
+        </form>
+    </div>
+</body>
+
+</html>
