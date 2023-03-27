@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/index.css">
 
     <script src="js/index.js" defer></script>
+    <script src="js/socket.js" defer></script>
 
     <title>Host a file</title>
 </head>
@@ -17,7 +18,18 @@
             <input type="file" id="fileElem" multiple onchange="handleFiles(this.files)">
             <label class="button" for="fileElem">Select files</label>
         </form>
+
+        <p id="socket-id"></p>
     </div>
+
+    <div id="receive-area">
+        <form class="receive-form">
+            <label class="button" for="idElem" id="idElemBtn">Receive files</label>
+            <input type="text" id="idElem">
+        </form>
+    </div>
+
+    <div id="file-area"></div>
 </body>
 
 </html>

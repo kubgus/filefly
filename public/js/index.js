@@ -1,5 +1,7 @@
 const dropArea = document.getElementById('drop-area');
-
+const fileArea = document.getElementById('file-area');
+const requestId = document.getElementById("idElem");
+const requestButton = document.getElementById("idElemBtn");
 
 const preventDefaults = e => {
     e.preventDefault();
@@ -72,10 +74,14 @@ const displayFile = (file, filename) => {
     return container;
 }
 
+const getEncodedFilename = (filename) => {
+    return `${Date.now()}${Math.round(Math.random() * 999999999)}_${filename}`;
+}
+
 let files = {};
 const saveFile = file => new Promise((resolve, reject) => {
-    const filename = `${Date.now()}${Math.round(Math.random() * 999999999)}_${file.name}`;
-    dropArea.appendChild(displayFile(file, filename));
+    const filename = getEncodedFilename(file.name);
+    fileArea.appendChild(displayFile(file, filename));
 
     const reader = new FileReader();
     reader.readAsDataURL(file);
