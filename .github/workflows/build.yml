@@ -1,3 +1,5 @@
+name: NodeJS runner
+
 on: push
 jobs:
   build-node:
