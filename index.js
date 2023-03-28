@@ -20,18 +20,38 @@ app.get('/:socketId', (req, res) => {
     res.render("pages/index");
 });
 
+let socketIds = {};
 io.on("connection", (socket) => {
+
+    const short = makeId(8);
+    socketIds[short] = socket.id;
 
     // stc - server to client
     // cts - client to server
 
-    socket.emit("stc-id", socket.id);
+    socket.emit("stc-id", short);
 
-    socket.on("cts-req-files", socketId => {
-        io.to(socketId).emit("stc-req-files", socket.id);
+    socket.on("cts-req-files", rShort => {
+        io.to(socketIds[rShort]).emit("stc-req-files", socket.id);
     });
 
     socket.on("cts-res-files", (socketId, files) => {
         io.to(socketId).emit("stc-res-files", files);
     })
+
+    socket.on("disconnect", () => {
+        delete socketIds[short];
+    })
 });
+
+function makeId(length) {
+    let result = '';
+    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        counter += 1;
+    }
+    return result;
+}
