@@ -75,7 +75,7 @@ const displayFile = (file, filename) => {
 }
 
 const getEncodedFilename = (filename) => {
-    return `${Date.now()}${Math.round(Math.random() * 999999999)}_${filename}`;
+    return `${Date.now()}${Math.round(Math.random() * 999999999)}/${filename}`;
 }
 
 let files = {};
@@ -108,7 +108,7 @@ const loadFile = filename => {
         u8arr[n] = bstr.charCodeAt(n);
     }
 
-    const filenameParsed = filename.split("_")[1];
+    const filenameParsed = filename.split("/")[1];
     console.log(`File loaded from "${filename}" as "${filenameParsed}"`);
     return new File([u8arr], filenameParsed, { type: mime });
 };
