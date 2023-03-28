@@ -179,3 +179,7 @@ form {
 .file-icon {
     margin-right: 0.5rem;
 }
+
+.file-progress {
+    margin-left: auto;
+}

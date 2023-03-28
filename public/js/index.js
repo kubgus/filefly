@@ -66,8 +66,13 @@ const displayDownload = (filename) => {
     name.classList.add('file-name');
     name.textContent = filename;
 
+    const progress = document.createElement('span');
+    progress.classList.add('file-progress');
+    progress.innerText = '0%';
+
     container.appendChild(icon);
     container.appendChild(name);
+    container.appendChild(progress)
 
     return container;
 }

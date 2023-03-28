@@ -36,8 +36,8 @@ io.on("connection", (socket) => {
         io.to(id.toLowerCase()).emit("stc-req-files", socket.id);
     });
 
-    socket.on("cts-res-files", (id, filename, batch) => {
-        io.to(id).emit("stc-res-files", filename, batch);
+    socket.on("cts-res-files", (id, len, filename, batch) => {
+        io.to(id).emit("stc-res-files", len, filename, batch);
     });
 });
 
