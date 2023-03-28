@@ -8,7 +8,9 @@ socket.on("stc-id", id => {
     a.innerText = link;
     a.href = `https://${link}`;
 
-    fileArea.innerHTML = '';
+    // fileArea.innerHTML = ''; 
+    // ^  this line of code is useless, because
+    //    the file variables are kept after change
 });
 
 const search = () => {
