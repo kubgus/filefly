@@ -1,6 +1,6 @@
 <div align="center">
 
-![](https://img.shields.io/website?down_color=red&down_message=offline&label=host.gustafik.com&style=for-the-badge&up_color=green&up_message=online&url=https%3A%2F%2Fhost.gustafik.com%2F)
+![](https://img.shields.io/website?down_color=red&down_message=offline&label=host.gustafik.com&style=for-the-badge&up_color=darkgreen&up_message=online&url=https%3A%2F%2Fhost.gustafik.com%2F)
 
 ---
 
