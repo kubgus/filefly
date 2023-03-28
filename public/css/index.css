@@ -158,6 +158,16 @@ form {
     border-radius: 0.25rem;
 }
 
+.file-container.disabled {
+    cursor: auto;
+    color: var(--i2);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.file-container.disabled:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 .file-container:first-child {
     margin: 0;
 }

@@ -51,6 +51,27 @@ const getFileIconClass = file => {
     }
 };
 
+const displayDownload = (filename) => {
+    const container = document.createElement('div');
+    container.classList.add('file-container');
+    container.classList.add('disabled');
+    container.id = `${filename}`;
+
+    const icon = document.createElement('i');
+    icon.classList.add('file-icon');
+    icon.classList.add("fa-solid");
+    icon.classList.add("fa-download");
+
+    const name = document.createElement('span');
+    name.classList.add('file-name');
+    name.textContent = filename;
+
+    container.appendChild(icon);
+    container.appendChild(name);
+
+    return container;
+}
+
 const displayFile = (file, filename) => {
     const container = document.createElement('div');
     container.classList.add('file-container');
