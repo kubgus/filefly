@@ -5,7 +5,9 @@ const port = process.env.PORT || 2023;
 const server = require('http').createServer(app).listen(port, () => {
     console.log(`Server started on port ${port}!`);
 });
-const io = require('socket.io')(server);
+const io = require('socket.io')(server, {
+    maxHttpBufferSize: 1e9,
+});
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
@@ -20,33 +22,28 @@ app.get('/:socketId', (req, res) => {
     res.render("pages/index");
 });
 
-let socketIds = {};
 io.on("connection", (socket) => {
 
-    const short = makeId(8);
-    socketIds[short] = socket.id;
+    let short = makeId(8);
+    socket.join(short);
 
     // stc - server to client
     // cts - client to server
 
     socket.emit("stc-id", short);
 
-    socket.on("cts-req-files", rShort => {
-        io.to(socketIds[rShort]).emit("stc-req-files", socket.id);
+    socket.on("cts-req-files", id => {
+        io.to(id).emit("stc-req-files", socket.id);
     });
 
-    socket.on("cts-res-files", (socketId, files) => {
-        io.to(socketId).emit("stc-res-files", files);
-    })
-
-    socket.on("disconnect", () => {
-        delete socketIds[short];
-    })
+    socket.on("cts-res-files", (id, files) => {
+        io.to(id).emit("stc-res-files", files);
+    });
 });
 
 function makeId(length) {
     let result = '';
-    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    const characters = 'abcdefghijklmnopqrstuvwxyz';
     const charactersLength = characters.length;
     let counter = 0;
     while (counter < length) {
