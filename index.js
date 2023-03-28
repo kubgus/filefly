@@ -24,7 +24,7 @@ app.get('/:socketId', (req, res) => {
 
 io.on("connection", (socket) => {
 
-    let short = makeId(8);
+    let short = makeId(6);
     socket.join(short);
 
     // stc - server to client
@@ -33,7 +33,7 @@ io.on("connection", (socket) => {
     socket.emit("stc-id", short);
 
     socket.on("cts-req-files", id => {
-        io.to(id).emit("stc-req-files", socket.id);
+        io.to(id.toLowerCase()).emit("stc-req-files", socket.id);
     });
 
     socket.on("cts-res-files", (id, files) => {
@@ -43,12 +43,12 @@ io.on("connection", (socket) => {
 
 function makeId(length) {
     let result = '';
-    const characters = 'abcdefghijklmnopqrstuvwxyz';
+    const characters = 'abcdefghijklmnopqrstuvwxyz123456789';
     const charactersLength = characters.length;
     let counter = 0;
     while (counter < length) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
         counter += 1;
     }
-    return result;
+    return result.toLowerCase();
 }

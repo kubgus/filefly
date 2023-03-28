@@ -1,8 +1,14 @@
 var socket = io();
 
 socket.on("stc-id", id => {
-    let p = document.getElementById("socket-id");
-    p.innerText = id;
+    const h1 = document.getElementById("socket-id");
+    h1.innerText = id;
+    const a = document.getElementById("socket-link");
+    let link = `${window.location.href.split("/")[2]}/${id}`;
+    a.innerText = link;
+    a.href = `https://${link}`;
+
+    fileArea.innerHTML = '';
 });
 
 const search = () => {

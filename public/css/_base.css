@@ -6,3 +6,10 @@
 html {
   font-family: sans-serif;
 }
+
+:root {
+  --b1: #6dafff;
+  --b2: #6dceff;
+  --i1: #147aff;
+  --i2: #1267d6;
+}

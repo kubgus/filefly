@@ -12,24 +12,35 @@
     <title>Host a file</title>
 </head>
 
+
 <body>
-    <div id="drop-area">
-        <form class="drop-form">
-            <input type="file" id="fileElem" multiple onchange="handleFiles(this.files)">
-            <label class="button" for="fileElem">Select files</label>
-        </form>
+    <div id="grid">
 
-        <p id="socket-id"></p>
+
+        <header>
+            <h1 id="socket-id">XXXXXX</h1>
+
+            <a href="." target="_blank" id="socket-link">_</a>
+        </header>
+
+        <div id="drop-area" class="area">
+            <form>
+                <input type="file" id="fileElem" multiple onchange="handleFiles(this.files)">
+                <label class="button" for="fileElem">Select files</label>
+            </form>
+        </div>
+
+        <div id="receive-area" class="area">
+            <form>
+                <label class="button" for="idElem" id="idElemBtn">Receive files</label>
+                <input type="text" id="idElem">
+            </form>
+        </div>
+
     </div>
 
-    <div id="receive-area">
-        <form class="receive-form">
-            <label class="button" for="idElem" id="idElemBtn">Receive files</label>
-            <input type="text" id="idElem">
-        </form>
+    <div id="file-area" class="area">
     </div>
-
-    <div id="file-area"></div>
 </body>
 
 </html>
