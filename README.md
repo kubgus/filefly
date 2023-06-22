@@ -6,7 +6,7 @@
 
 A service for sharing files with ease.
 
-[Try lohost!](https://host.gustafik.com)
+[Try Filefly!](https://host.gustafik.com)
 
 </div>
 
@@ -19,11 +19,11 @@ A service for sharing files with ease.
 
 This is what you're looking for!
 
-With lohost, you can share your data directly from one pc to another no matter the size or content. 😉
+With Filefly, you can share your data directly from one pc to another no matter the size or content. 😉
 
 ## How does it work?
 
-Lohost doesn't actually host any data. The server is there just to connect you with other people.
+Filefly doesn't actually host any data. The server is there just to connect you with other people.
 
 **It's that easy:**
 - Visit our [website](https://host.gustafik.com/)

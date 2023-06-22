@@ -1,5 +1,5 @@
 {
-  "name": "lohost",
+  "name": "filefly",
   "version": "0.0.1",
   "description": "A service that hosts files without storing them.",
   "main": "index.js",
