@@ -24,13 +24,14 @@ app.get('/:socketId', (req, res) => {
 
 io.on("connection", (socket) => {
 
-    let short = makeId(6);
-    socket.join(short);
-
     // stc - server to client
     // cts - client to server
 
-    socket.emit("stc-id", short);
+    socket.emit("stc-id", makeId(6));
+
+    socket.on("cts-refresh", short => {
+        socket.join(short);
+    });
 
     socket.on("cts-req-files", id => {
         io.to(id.toLowerCase()).emit("stc-req-files", socket.id);
