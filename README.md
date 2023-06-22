@@ -26,7 +26,7 @@ With Filefly, you can share your data directly from one pc to another no matter 
 Filefly doesn't actually host any data. The server is there just to connect you with other people.
 
 **It's that easy:**
-- Visit our [website](https://host.gustafik.com/)
+- Visit our [website](https://filefly.gustafik.com/)
 - Upload files by dragging or selecting them from your device
 - Share your link or code with your friends
 - They can then download your uploaded files
